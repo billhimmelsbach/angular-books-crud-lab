@@ -20,21 +20,22 @@ BooksIndexController.$inject=['$http'];
 
   vm.createBook = function () {
     console.log("test");
-    console.log("newBook");
+    console.log(vm.newBook);
     $http({
       method: 'POST',
       url: 'https://super-crud.herokuapp.com/books/',
       data: vm.newBook,
     }).then(function successCallback(response) {
-      vm.bookmon.push(response.data);
+      vm.books.push(response.data);
+      console.log(response.data);
       $('#myModal').modal('toggle');
-      bookSound(bulbasaur);
+      // bookSound(bulbasaur);
       setTimeout(function(){ $('.newBookForm').find("input[type=text], input[type=url], textarea").val(""); }, 3000);
     }, function errorCallback(response) {
       console.log('There was an error posting the data', response);
     });
   };
-  // 
+  //
   // vm.editBook = function (book) {
   //   console.log(book);
   //   $http({
