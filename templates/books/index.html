@@ -1,11 +1,17 @@
 <h2>Library Books</h2>
 <div ng-repeat="book in booksCtrl.books">
-  <h1>{{book.title}}</h1>
-  <h2>{{book.author}}</h2>
-  <h3>{{book.release}}</h3>
+  <h1 ng-hide="editing">{{book.title}}</h1>
+  <input ng-show="editing" ng-model="book.title" type="text" class="form-control input-md" required>
+  <h2 ng-hide="editing">{{book.author}}</h2>
+  <input ng-show="editing" ng-model="book.author" type="text" class="form-control input-md" required>
+  <h3 ng-hide="editing">{{book.releaseDate}}</h3>
+  <input ng-show="editing" ng-model="book.releaseDate" type="text" class="form-control input-md" required>
   <img class="img-responsive" src="{{book.image}}">
-  <a ng-href="/books/{{$index}}"}}>Learn More!</a>
-
+  <a ng-href="/books/{{book._id}}"}}>Learn More!</a>
+  <button class='btn btn-danger btn-lg' ng-hide="editing" ng-click="booksCtrl.deleteBook(book)">Delete Book!</button>
+  <button class='btn btn-info btn-lg' ng-hide="editing" ng-click="editing = true">Edit Book!</button>
+  <button class='btn btn-success btn-lg' ng-show="editing" ng-click="booksCtrl.editBook(book); editing = false">Save Book!</button>
+  <button class='btn btn-danger btn-lg' ng-show="editing" ng-click="editing = false">Cancel Edit!</button>
   <!-- Here, make the HTML for how you want each book to display.
   Make sure you display an image, the title, and the author.
   The title should be a link to the specific book view. -->

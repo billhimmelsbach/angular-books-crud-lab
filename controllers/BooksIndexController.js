@@ -2,8 +2,10 @@ angular.module('libraryApp')
   .controller('BooksIndexController', BooksIndexController);
 
 BooksIndexController.$inject=['$http'];
+
   function BooksIndexController ($http) {
     var vm = this;
+    vm.newBook = {};
     $http({
     method: 'GET',
     url:'https://super-crud.herokuapp.com/books',
@@ -33,30 +35,29 @@ BooksIndexController.$inject=['$http'];
     });
   };
 
-//   vm.editBook = function (book) {
-//     console.log(book);
-//     $http({
-//       method: 'PUT',
-//       url: 'https://super-crud.herokuapp.com/bookmon/'+book._id,
-//       data: book
-//     }).then(function successCallback(json) {
-//       console.log("PUT!");
-//       bookSound(pikachu);
-//     }, function errorCallback(response) {
-//       console.log('There was an error editing the data', response);
-//     });
-//   };
-//
-//   vm.deleteBook = function (book) {
-//     $http({
-//       method: 'DELETE',
-//       url: 'https://super-crud.herokuapp.com/bookmon/'+ book._id
-//     }).then(function successCallback(json) {
-//       console.log("test");
-//       bookSound(charmander);
-//       var index = vm.bookmon.indexOf(book);
-//       vm.bookmon.splice(index,1);
-//     }, function errorCallback(response) {
-//       console.log('There was an error deleting the data', response);
-//     });
-  }
+  vm.editBook = function (book) {
+    console.log(book);
+    $http({
+      method: 'PUT',
+      url: 'https://super-crud.herokuapp.com/books/'+book._id,
+      data: book
+    }).then(function successCallback(json) {
+      console.log("PUT!");
+    }, function errorCallback(response) {
+      console.log('There was an error editing the data', response);
+    });
+  };
+
+  vm.deleteBook = function (book) {
+    $http({
+      method: 'DELETE',
+      url: 'https://super-crud.herokuapp.com/books/'+ book._id
+    }).then(function successCallback(json) {
+      console.log("test");
+      var index = vm.books.indexOf(book);
+      vm.books.splice(index,1);
+    }, function errorCallback(response) {
+      console.log('There was an error deleting the data', response);
+    });
+  };
+}
