@@ -3,6 +3,6 @@
 }*/
 
 img {
-  height:auto;
-  width:40%;
+  max-height:50vh;
+  width:auto;
 }

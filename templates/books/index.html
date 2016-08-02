@@ -62,7 +62,7 @@
       </div>
 			<!-- end modal -->
 <button type="button" ng-hide="editing" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Make A New Book!</button>
-<div ng-repeat="book in booksCtrl.books">
+<div ng-repeat="book in booksCtrl.books | orderBy: 'title'">
   <h1 ng-hide="editing">{{book.title}}</h1>
   <!-- <input ng-show="editing" ng-model="book.title" type="text" class="form-control input-md" required> -->
   <h2 ng-hide="editing">{{book.author}}</h2>
