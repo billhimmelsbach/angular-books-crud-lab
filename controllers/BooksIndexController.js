@@ -34,30 +34,30 @@ BooksIndexController.$inject=['$http'];
       console.log('There was an error posting the data', response);
     });
   };
-
-  vm.editBook = function (book) {
-    console.log(book);
-    $http({
-      method: 'PUT',
-      url: 'https://super-crud.herokuapp.com/books/'+book._id,
-      data: book
-    }).then(function successCallback(json) {
-      console.log("PUT!");
-    }, function errorCallback(response) {
-      console.log('There was an error editing the data', response);
-    });
-  };
-
-  vm.deleteBook = function (book) {
-    $http({
-      method: 'DELETE',
-      url: 'https://super-crud.herokuapp.com/books/'+ book._id
-    }).then(function successCallback(json) {
-      console.log("test");
-      var index = vm.books.indexOf(book);
-      vm.books.splice(index,1);
-    }, function errorCallback(response) {
-      console.log('There was an error deleting the data', response);
-    });
-  };
+  // 
+  // vm.editBook = function (book) {
+  //   console.log(book);
+  //   $http({
+  //     method: 'PUT',
+  //     url: 'https://super-crud.herokuapp.com/books/'+book._id,
+  //     data: book
+  //   }).then(function successCallback(json) {
+  //     console.log("PUT!");
+  //   }, function errorCallback(response) {
+  //     console.log('There was an error editing the data', response);
+  //   });
+  // };
+  //
+  // vm.deleteBook = function (book) {
+  //   $http({
+  //     method: 'DELETE',
+  //     url: 'https://super-crud.herokuapp.com/books/'+ book._id
+  //   }).then(function successCallback(json) {
+  //     console.log("test");
+  //     var index = vm.book.indexOf(book);
+  //     vm.books.splice(index,1);
+  //   }, function errorCallback(response) {
+  //     console.log('There was an error deleting the data', response);
+  //   });
+  // };
 }
