@@ -8,6 +8,7 @@ BooksIndexController.$inject=['$http'];
     var vm = this;
     vm.newBook = {};
     vm.orderBy="title";
+    vm.reverse="false";
     $http({
     method: 'GET',
     url:'https://super-crud.herokuapp.com/books',

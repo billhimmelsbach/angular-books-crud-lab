@@ -25,6 +25,7 @@ function BooksShowController($http, $routeParams, $location) {
       data: book
     }).then(function successCallback(json) {
       console.log("PUT!");
+      window.location = '/';
     }, function errorCallback(response) {
       console.log('There was an error editing the data', response);
     });
