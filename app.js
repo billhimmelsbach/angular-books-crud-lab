@@ -1,21 +1,25 @@
 angular.module('libraryApp', ['ngRoute'])
-       .config(config)
-       .controller('BooksShowController', BooksShowController)
-       .controller('BooksIndexController', BooksIndexController);
+       .config(config);
+      //  .controller('BooksShowController', BooksShowController)
+      //  .controller('BooksIndexController', BooksIndexController);
 
 ////////////
 // ROUTES //
 ////////////
 
 config.$inject = ['$routeProvider', '$locationProvider',];
-function config (  $routeProvider,   $locationProvider  )  {
+function config (  $routeProvider,   $locationProvider)  {
   $routeProvider
     .when('/', {
       templateUrl: '/templates/books/index.html',
       controller:  'BooksIndexController',
       controllerAs: 'booksCtrl'
     })
-    /* Include the additional route here! */
+    .when('/books/:index', {
+        templateUrl: '/templates/books/show.html',
+        controller: 'BooksShowController',
+        controllerAs: 'bookCtrl'
+      })
     .otherwise({
       redirectTo: '/'
     });
@@ -27,5 +31,3 @@ function config (  $routeProvider,   $locationProvider  )  {
       requireBase: false
     });
 }
-
-// BooksIndexController.$inject = ['']
