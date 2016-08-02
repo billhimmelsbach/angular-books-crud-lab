@@ -1,3 +1,4 @@
+
 angular.module('libraryApp')
   .controller('BooksIndexController', BooksIndexController);
 
@@ -6,6 +7,7 @@ BooksIndexController.$inject=['$http'];
   function BooksIndexController ($http) {
     var vm = this;
     vm.newBook = {};
+    vm.orderBy="title";
     $http({
     method: 'GET',
     url:'https://super-crud.herokuapp.com/books',

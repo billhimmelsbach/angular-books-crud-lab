@@ -62,7 +62,20 @@
       </div>
 			<!-- end modal -->
 <button type="button" ng-hide="editing" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Make A New Book!</button>
-<div ng-repeat="book in booksCtrl.books | orderBy: 'title'">
+<br>
+<br>
+<div class="row">
+<div class="col-xs-6">
+<input type="text" class="form-control" ng-model="searchBook" placeholder="Search Books">
+<input type="text" class="form-control" ng-model="booksCtrl.orderBy" placeholder="Order By">
+<label for="sortSelect">Sort By:</label>
+<select name="sortSelect" ng-model="booksCtrl.orderBy">
+      <option value="title">Title</option>
+      <option value="author">Author</option>
+</select>
+</div>
+</div>
+<div ng-repeat="book in booksCtrl.books | orderBy: booksCtrl.orderBy | filter: searchBook">
   <h1 ng-hide="editing">{{book.title}}</h1>
   <!-- <input ng-show="editing" ng-model="book.title" type="text" class="form-control input-md" required> -->
   <h2 ng-hide="editing">{{book.author}}</h2>
