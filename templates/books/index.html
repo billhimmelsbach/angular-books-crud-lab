@@ -1,102 +1,121 @@
 <head>
-<link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <h1>Library Books!</h1>
 <!-- Modal -->
-      <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Add Your Own Book!</h4>
-            </div>
-            <br>
-            <div class="row">
-              <div class = "col-xs-9">
-                <form class="form-horizontal newBookForm">
-                  <!-- ng-submit="pokemonIndexCtrl.createPoke()" -->
-                <fieldset>
-                  <div class="form-group">
-                    <label class="col-md-6 control-label">Title</label>
-                    <div class="col-md-6">
-                    <input id="name" ng-model="booksCtrl.newBook.title" type="text" class="form-control input-md" placeholder="The Adventures of Huckleberry Finn" required>
-                    </div>
-                  </div>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Your Own Book!</h4>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-9">
+          <form class="form-horizontal newBookForm">
+            <!-- ng-submit="pokemonIndexCtrl.createPoke()" -->
+            <fieldset>
+              <div class="form-group">
+                <label class="col-md-6 control-label">Title</label>
+                <div class="col-md-6">
+                  <input id="name" ng-model="booksCtrl.newBook.title" type="text" class="form-control input-md" placeholder="The Adventures of Huckleberry Finn" required>
+                </div>
+              </div>
 
-                  <div class="form-group">
-                    <label class="col-md-6 control-label">Author</label>
-                    <div class="col-md-6">
-                    <input ng-model="booksCtrl.newBook.author" type="text" class="form-control input-md" placeholder="Mark Twain" required>
-                    </div>
-                  </div>
+              <div class="form-group">
+                <label class="col-md-6 control-label">Author</label>
+                <div class="col-md-6">
+                  <input ng-model="booksCtrl.newBook.author" type="text" class="form-control input-md" placeholder="Mark Twain" required>
+                </div>
+              </div>
 
-                  <div class="form-group">
-                    <label class="col-md-6 control-label">Release Date:</label>
-                    <div class="col-md-6">
-                    <input ng-model="booksCtrl.newBook.releaseDate" type="text" class="form-control input-md" placeholder="December 10, 1884" required>
-                    </div>
-                  </div>
+              <div class="form-group">
+                <label class="col-md-6 control-label">Release Date:</label>
+                <div class="col-md-6">
+                  <input ng-model="booksCtrl.newBook.releaseDate" type="text" class="form-control input-md" placeholder="December 10, 1884" required>
+                </div>
+              </div>
 
-                  <div class="form-group">
-                    <label class="col-md-6 control-label">Image of Book Cover</label>
-                    <div class="col-md-6">
-                    <input ng-model="booksCtrl.newBook.image" type="url" class="form-control input-md" placeholder="https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn#/media/File:Huckleberry_Finn_book.JPG" required>
-                    </div>
-                  </div>
-            </div>
-          </div>
-          <div class="row">
-          <div class="form-group modal-footer col-md-10 col-md-offset-1">
-            <!-- <div class="col-md-3"> -->
-              <button id="savePokemonButton" ng-click="booksCtrl.createBook(newBook);" class="pull-right savePokemon btn btn-lg btn-success">Save Your Book!</button>
-            </fieldset>
-          </form>
-            <!-- </div> -->
-          </div>
-          </div>
-        </div>
-
+              <div class="form-group">
+                <label class="col-md-6 control-label">Image of Book Cover</label>
+                <div class="col-md-6">
+                  <input ng-model="booksCtrl.newBook.image" type="url" class="form-control input-md" placeholder="https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn#/media/File:Huckleberry_Finn_book.JPG" required>
+                </div>
+              </div>
         </div>
       </div>
-			<!-- end modal -->
+      <div class="row">
+        <div class="form-group modal-footer col-md-10 col-md-offset-1">
+          <!-- <div class="col-md-3"> -->
+          <button id="savePokemonButton" ng-click="booksCtrl.createBook(newBook);" class="pull-right savePokemon btn btn-lg btn-success">Save Your Book!</button>
+          </fieldset>
+          </form>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end modal -->
 <button type="button" ng-hide="editing" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Make A New Book!</button>
 <br>
 <br>
 <div class="row">
-<div class="col-xs-6">
-<input type="text" class="form-control" ng-model="searchBook" placeholder="Search Books">
-<br>
-<!-- <input type="text" class="form-control" ng-model="booksCtrl.orderBy" placeholder="Order By"> -->
-<label for="sortSelect">Sort By:</label>
-<select name="sortSelect" ng-model="booksCtrl.orderBy">
+  <div class="col-xs-6">
+    <input type="text" class="form-control" ng-model="searchBook" placeholder="Search Books">
+    <br>
+    <!-- <input type="text" class="form-control" ng-model="booksCtrl.orderBy" placeholder="Order By"> -->
+    <label for="sortSelect">Sort By:</label>
+    <select name="sortSelect" ng-model="booksCtrl.orderBy">
       <option value="title">Title</option>
       <option value="author">Author</option>
       <option value="releaseDate">Release Date</option>
-</select>
-<br>
-<label>Reverse Sort, CLICK ME > </label>
-    <span ng-click = "booksCtrl.reverse = true" ng-hide="reverse" class=sortOrder></span>
-    <span ng-click = "booksCtrl.reverse = false" ng-show="reverse" class=reverseSortOrder></span>
+    </select>
+    <br>
+    <label>Reverse Sort, CLICK ME > </label>
+    <span ng-click="booksCtrl.reverse = true" ng-hide="reverse" class=sortOrder></span>
+    <span ng-click="booksCtrl.reverse = false" ng-show="reverse" class=reverseSortOrder></span>
+  </div>
 </div>
 </div>
-<div ng-repeat="book in booksCtrl.books | orderBy: booksCtrl.orderBy : reverse=booksCtrl.reverse| filter: searchBook">
-  <h1 ng-hide="editing">{{book.title}}</h1>
-  <!-- <input ng-show="editing" ng-model="book.title" type="text" class="form-control input-md" required> -->
-  <h2 ng-hide="editing">{{book.author}}</h2>
-  <!-- <input ng-show="editing" ng-model="book.author" type="text" class="form-control input-md" required> -->
-  <h3 ng-hide="editing">{{book.releaseDate}}</h3>
-  <!-- <input ng-show="editing" ng-model="book.releaseDate" type="text" class="form-control input-md" required> -->
-  <img class="img-responsive" src="{{book.image}}">
-  <br>
-  <!-- <br> -->
-  <a class="btn btn-info btn-lg" ng-href="/books/{{book._id}}"}}>Edit Book!</a>
-  <!-- <button class='btn btn-danger btn-lg' ng-hide="editing" ng-click="booksCtrl.deleteBook(book)">Delete Book!</button>
-  <button class='btn btn-info btn-lg' ng-hide="editing" ng-click="editing = true">Edit Book!</button>
-  <button class='btn btn-success btn-lg' ng-show="editing" ng-click="booksCtrl.editBook(book); editing = false">Save Book!</button> -->
-  <button class='btn btn-danger btn-lg' ng-show="editing" ng-click="editing = false">Cancel Edit!</button>
-  <!-- Here, make the HTML for how you want each book to display.
-  Make sure you display an image, the title, and the author.
-  The title should be a link to the specific book view. -->
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div ng-repeat="book in booksCtrl.books | orderBy: booksCtrl.orderBy : reverse=booksCtrl.reverse| filter: searchBook">
+      <!-- Card Projects -->
+      <div class="col-xs-6">
+        <div class="card">
+          <div class="card-image">
+            <img class="img-responsive" src="{{book.image}}">
+          </div>
+
+          <div class="card-content">
+            <h1 ng-hide="editing">{{book.title}}</h1>
+            <!-- <input ng-show="editing" ng-model="book.title" type="text" class="form-control input-md" required> -->
+            <h2 ng-hide="editing">Author: {{book.author}}</h2>
+            <!-- <input ng-show="editing" ng-model="book.author" type="text" class="form-control input-md" required> -->
+            <h3 ng-hide="editing">Release Date: {{book.releaseDate}}</h3>
+            <!-- <input ng-show="editing" ng-model="book.releaseDate" type="text" class="form-control input-md" required> -->
+            <!-- <br> -->
+            <!-- <button class='btn btn-danger btn-lg' ng-hide="editing" ng-click="booksCtrl.deleteBook(book)">Delete Book!</button>
+                  <button class='btn btn-info btn-lg' ng-hide="editing" ng-click="editing = true">Edit Book!</button>
+                  <button class='btn btn-success btn-lg' ng-show="editing" ng-click="booksCtrl.editBook(book); editing = false">Save Book!</button> -->
+            <!-- Here, make the HTML for how you want each book to display.
+                  Make sure you display an image, the title, and the author.
+                  The title should be a link to the specific book view. -->
+          </div>
+          <div class="card-action">
+              <a class ="editBookButton" ng-href="/books/{{book._id}}" }}>Edit Book!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,13 +2,13 @@
 <hr> -->
 
 <div class="container col-xs-12">
-
-		<h1 ng-hide="editing">{{bookCtrl.book.title}}</h1>
+		<h1>Title: <span ng-hide="editing">{{bookCtrl.book.title}}</span></h1>
 	  <input ng-show="editing" ng-model="bookCtrl.book.title" type="text" class="form-control input-md" required>
-	  <h2 ng-hide="editing">{{bookCtrl.book.author}}</h2>
+	  <h2>Author: <span ng-hide="editing"> {{bookCtrl.book.author}}</span></h2>
 	  <input ng-show="editing" ng-model="bookCtrl.book.author" type="text" class="form-control input-md" required>
-	  <h3 ng-hide="editing">{{bookCtrl.book.releaseDate}}</h3>
+	  <h3>Release Date: <span ng-hide="editing">{{bookCtrl.book.releaseDate}}</span></h3>
 	  <input ng-show="editing" ng-model="bookCtrl.book.releaseDate" type="text" class="form-control input-md" required>
+		<br>
 	  <img class="img-responsive" src="{{bookCtrl.book.image}}">
 		<input ng-show="editing" ng-model="bookCtrl.book.image" type="text" class="form-control input-md" required>
 		<br>
