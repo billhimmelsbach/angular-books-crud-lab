@@ -1,5 +1,6 @@
 angular.module('libraryApp', ['ngRoute'])
        .config(config);
+
       //  .controller('BooksShowController', BooksShowController)
       //  .controller('BooksIndexController', BooksIndexController);
 
@@ -7,8 +8,10 @@ angular.module('libraryApp', ['ngRoute'])
 // ROUTES //
 ////////////
 
-config.$inject = ['$routeProvider', '$locationProvider',];
-function config (  $routeProvider,   $locationProvider)  {
+config.$inject = ['$routeProvider', '$locationProvider', '$sceProvider'];
+function config (  $routeProvider,   $locationProvider, $sceProvider)  {
+  $sceProvider.enabled(false);
+
   $routeProvider
     .when('/', {
       templateUrl: '/templates/books/index.html',
