@@ -1,7 +1,7 @@
 <head>
 <link rel="stylesheet" href="styles/styles.css">
 </head>
-<h2>Library Books</h2>
+<h1>Library Books!</h1>
 <!-- Modal -->
       <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -67,13 +67,18 @@
 <div class="row">
 <div class="col-xs-6">
 <input type="text" class="form-control" ng-model="searchBook" placeholder="Search Books">
-<input type="text" class="form-control" ng-model="booksCtrl.orderBy" placeholder="Order By">
+<br>
+<!-- <input type="text" class="form-control" ng-model="booksCtrl.orderBy" placeholder="Order By"> -->
 <label for="sortSelect">Sort By:</label>
 <select name="sortSelect" ng-model="booksCtrl.orderBy">
       <option value="title">Title</option>
       <option value="author">Author</option>
       <option value="releaseDate">Release Date</option>
 </select>
+<br>
+<label>Reverse Sort, CLICK ME > </label>
+    <span ng-click = "booksCtrl.reverse = true" ng-hide="reverse" class=sortOrder></span>
+    <span ng-click = "booksCtrl.reverse = false" ng-show="reverse" class=reverseSortOrder></span>
 </div>
 </div>
 <div ng-repeat="book in booksCtrl.books | orderBy: booksCtrl.orderBy : reverse=booksCtrl.reverse| filter: searchBook">
@@ -86,7 +91,7 @@
   <img class="img-responsive" src="{{book.image}}">
   <br>
   <!-- <br> -->
-  <a class="btn btn-info btn-lg" ng-href="/books/{{book._id}}"}}>Learn More!</a>
+  <a class="btn btn-info btn-lg" ng-href="/books/{{book._id}}"}}>Edit Book!</a>
   <!-- <button class='btn btn-danger btn-lg' ng-hide="editing" ng-click="booksCtrl.deleteBook(book)">Delete Book!</button>
   <button class='btn btn-info btn-lg' ng-hide="editing" ng-click="editing = true">Edit Book!</button>
   <button class='btn btn-success btn-lg' ng-show="editing" ng-click="booksCtrl.editBook(book); editing = false">Save Book!</button> -->

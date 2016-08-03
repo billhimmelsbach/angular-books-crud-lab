@@ -6,3 +6,14 @@ img {
   max-height:50vh;
   width:auto;
 }
+
+h1 {
+  text-align: center;
+}
+
+.sortOrder:after {
+  content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.reverseSortOrder:after {
+  content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+}
